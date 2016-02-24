@@ -10,8 +10,9 @@ using Microsoft.Azure.Devices;
 using Microsoft.Azure.Devices.Common.Exceptions;
 using Newtonsoft.Json;
 using Shared;
+using Device = DigitalHouse.Device;
 
-namespace DigitalHouse
+namespace WebApp
 {
     [RoutePrefix("api/devices")]
     public class DevicesController : ApiController

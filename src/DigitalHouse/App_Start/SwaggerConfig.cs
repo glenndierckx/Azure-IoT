@@ -1,11 +1,11 @@
 using System.Web.Http;
-using WebActivatorEx;
-using DigitalHouse;
 using Swashbuckle.Application;
+using WebActivatorEx;
+using WebApp;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace DigitalHouse
+namespace WebApp
 {
     public class SwaggerConfig
     {

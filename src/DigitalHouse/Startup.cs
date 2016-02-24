@@ -1,15 +1,14 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Web.Http;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Owin;
 using Swashbuckle.Application;
+using WebApp;
 
-[assembly: OwinStartup(typeof(DigitalHouse.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace DigitalHouse
+namespace WebApp
 {
     public class Startup
     {

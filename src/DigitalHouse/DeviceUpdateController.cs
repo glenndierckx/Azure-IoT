@@ -2,7 +2,7 @@
 using Microsoft.AspNet.SignalR;
 using Shared;
 
-namespace DigitalHouse
+namespace WebApp
 {
     [RoutePrefix("api/deviceupdate")]
     public class DeviceUpdateController : ApiController
