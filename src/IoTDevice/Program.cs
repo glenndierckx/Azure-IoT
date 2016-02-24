@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using DigitalHouse;
@@ -10,12 +7,12 @@ using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using Shared;
 
-namespace IoTDevice
+namespace FakeDevice
 {
     class Program
     {
         private static bool _isOn = true;
-        static void Main(string[] args)
+        static void Main()
         {
             Device thisDevice = null;
             var thisDeviceFile = "data.json";

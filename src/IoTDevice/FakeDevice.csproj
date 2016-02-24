@@ -7,8 +7,8 @@
     <ProjectGuid>{8ED13E52-E34C-4B44-9AF2-01FD8D7E2448}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IoTDevice</RootNamespace>
-    <AssemblyName>IoTDevice</AssemblyName>
+    <RootNamespace>FakeDevice</RootNamespace>
+    <AssemblyName>FakeDevice</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
