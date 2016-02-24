@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
 using Microsoft.ServiceBus.Messaging;
 using Newtonsoft.Json;
 using Shared;
@@ -14,13 +10,12 @@ namespace EventHandler
 {
     class Program
     {
-        private static JobHost _host;
         private static EventHubClient _eventHubClient;
 
         static string connectionString = "HostName=azure-iot-demo.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=Zma9R1DQz5TrXzIOggualsAm1OxZp4/KFGLq8Fbce70=";
         static string iotHubD2cEndpoint = "messages/events";
 
-        static void Main(string[] args)
+        static void Main()
         {
             _eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
