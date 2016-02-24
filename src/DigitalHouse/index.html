@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital house</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script src="/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.connection.hub.url = "/signalr";
+            var hub = $.connection.myHub;
+            hub.client.deviceUpdate = function (data) {
+                console.log("Device update " + JSON.stringify(data));
+            };
+            $.connection.hub.start().done(function () {
+                    hub.server.send(true);
+                });
+            });
+    </script>
+</body>
+</html>
