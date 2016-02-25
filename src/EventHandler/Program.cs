@@ -14,7 +14,7 @@ namespace EventHandler
 
         static void Main()
         {
-            var connectionString = "HostName=azure-iot-demo.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=Zma9R1DQz5TrXzIOggualsAm1OxZp4/KFGLq8Fbce70=";
+            var connectionString = "{connectionstring}";
             var iotHubD2cEndpoint = "messages/events";
             _eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
             // create listener task per partition
