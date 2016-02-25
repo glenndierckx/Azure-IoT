@@ -29,10 +29,5 @@ namespace WebApp
     }
     public class MyHub : Hub
     {
-        public void Send(bool test)
-        {
-            Debug.WriteLine("Turn " + test);
-            Clients.All.addMessage("Hello");
-        }
     }
 }

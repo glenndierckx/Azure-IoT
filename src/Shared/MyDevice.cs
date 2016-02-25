@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DigitalHouse
+namespace Shared
 {
-    public class Device
+    public class MyDevice
     {
         public Guid Id { get; set; }
         public string Key { get; set; }

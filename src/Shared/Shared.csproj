@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Device.cs" />
+    <Compile Include="MyDevice.cs" />
     <Compile Include="DeviceCommand.cs" />
     <Compile Include="DevicePowerUsage.cs" />
     <Compile Include="ECommandType.cs" />

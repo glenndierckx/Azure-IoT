@@ -15,10 +15,8 @@
             hub.client.deviceUpdate = function (data) {
                 console.log("Device update " + JSON.stringify(data));
             };
-            $.connection.hub.start().done(function () {
-                    hub.server.send(true);
-                });
-            });
+            $.connection.hub.start().done(function () {});
+        });
     </script>
 </body>
 </html>
