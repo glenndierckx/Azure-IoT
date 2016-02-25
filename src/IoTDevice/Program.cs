@@ -19,8 +19,32 @@ namespace FakeDevice
                 new DeviceAuthenticationWithRegistrySymmetricKey(myDevice.Id.ToString(), myDevice.Key),
                 TransportType.Amqp);
             SendDummyUpdates(client);
+            ListenForCommands(client);
             Console.ReadLine();
             client.CloseAsync().Wait();
+        }
+private static void ListenForCommands(DeviceClient client)
+        {
+            Task.Run(async () =>
+            {
+                while (true)
+                {
+                    var message = await client.ReceiveAsync();
+                    if (message == null) continue;
+                    var messageContent = Encoding.ASCII.GetString(message.GetBytes());
+                    var command = JsonConvert.DeserializeObject<DeviceCommand>(messageContent);
+                    if (command.Command == ECommandType.TurnOff)
+                    {
+                        _isOn = false;
+                    }
+                    else if (command.Command == ECommandType.TurnOn)
+                    {
+                        _isOn = true;
+                    }
+                    Console.WriteLine("Message received:" + messageContent);
+                    await client.CompleteAsync(message);
+                }
+            });
         }
         private static void SendDummyUpdates(DeviceClient client)
         {

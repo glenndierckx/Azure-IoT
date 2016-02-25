@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.Azure.Devices;
 using Microsoft.Azure.Devices.Common.Exceptions;
+using Newtonsoft.Json;
 using Shared;
 
 namespace WebApp
@@ -56,6 +58,15 @@ namespace WebApp
         public async Task Delete(Guid id)
         {
             await _manager.RemoveDeviceAsync(id.ToString());
+        }
+        [Route("{id}"), HttpPost]
+        public async Task ExecuteCommand(Guid id, DeviceCommand command)
+        {
+            var client = ServiceClient.CreateFromConnectionString(_connectionString);
+            var json = JsonConvert.SerializeObject(command);
+            var jsonBInary = Encoding.ASCII.GetBytes(json);
+            var message = new Message(jsonBInary);
+            await client.SendAsync(id.ToString(), message);
         }
     }
 }
